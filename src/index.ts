@@ -290,6 +290,12 @@ export class TypeScriptPlugin {
       return
     }
 
+    service.artifact = path.join(
+      this.originalServicePath,
+      SERVERLESS_FOLDER,
+      path.basename(service.package.artifact)
+    )
+    
     service.package.artifact = path.join(
       this.originalServicePath,
       SERVERLESS_FOLDER,
