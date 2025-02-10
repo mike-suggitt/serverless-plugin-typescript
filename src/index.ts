@@ -290,12 +290,6 @@ export class TypeScriptPlugin {
       return
     }
 
-    service.artifact = path.join(
-      this.originalServicePath,
-      SERVERLESS_FOLDER,
-      path.basename(service.package.artifact)
-    )
-    
     service.package.artifact = path.join(
       this.originalServicePath,
       SERVERLESS_FOLDER,
@@ -308,7 +302,7 @@ export class TypeScriptPlugin {
     // Restore service path
     this.serverless.config.servicePath = this.originalServicePath
     // Remove temp build folder
-    fs.removeSync(path.join(this.originalServicePath, BUILD_FOLDER))
+    // fs.removeSync(path.join(this.originalServicePath, BUILD_FOLDER))
   }
 
   /**
